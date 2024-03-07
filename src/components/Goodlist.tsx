@@ -84,17 +84,22 @@ const goods: Post[] = [
     tags: ["polygon", "purple", "simple"],
   },
 ];
-export const GoodList = () => {
+
+type Props = {
+  Post: Post[];
+};
+
+//Postを受け取り、それを表示するコンポーネント
+export const PostList: React.FC<Props> = ({ Post }) => {
   const [goodPosts, setGoodPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    setGoodPosts(goods);
+    setGoodPosts(Post);
   }, []);
 
   return (
     <div>
-      <h1>Good List</h1>
-      <div className={styles.goodPosts}>
+      <div className={styles.posts}>
         {goodPosts.map((good, index) => {
           return (
             <div key={index} className={styles.goodPost}>
