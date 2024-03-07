@@ -164,6 +164,4 @@ export default function Post() {
       </div>
     </>
   );
-};
-
-export default StringToHtml;
+}
