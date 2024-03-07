@@ -1,29 +1,46 @@
 import React, { useRef, useEffect } from "react";
 
-const PreviewIframe: React.FC<{
-  html: string;
+type Post = {
+  title: string;
   height: number;
   width: number;
-}> = ({ html, height, width }) => {
+  html: string;
+  css: string;
+  author: string;
+  authorId: string;
+  tags: string[];
+};
+
+type Props = {
+  content: string;
+  height: number;
+  width: number;
+};
+
+const PreviewIframe: React.FC<{
+  Post: Post;
+}> = ({ Post }) => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
+    const content = Post.html + "<style>" + Post.css + "</style>";
     const iframe: any = iframeRef.current;
     const doc = iframe.contentWindow.document;
     doc.open();
-    doc.write(html);
+    doc.write(content);
     doc.close();
-  }, [html]);
+  }, []);
 
   return (
     <iframe
       ref={iframeRef}
       id="preview"
       style={{
-        width: width,
-        height: height,
+        width: Post.width,
+        height: Post.height,
         border: "none",
       }}
+      scrolling="no"
     ></iframe>
   );
 };
