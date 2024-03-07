@@ -87,6 +87,7 @@ export default function Post() {
       <div>
         <div className={styles.canvas}>
           <iframe
+            className={styles.canvas_children}
             ref={iframeRef}
             id="preview"
             style={{
@@ -94,6 +95,7 @@ export default function Post() {
               height: height,
               border: "none",
             }}
+            scrolling="no"
           ></iframe>
         </div>
         <div className={styles.editor}>
@@ -107,7 +109,14 @@ export default function Post() {
                 value={height}
                 onChange={(e) => setHeight(Number(e.target.value))}
               />
-              {height}px
+              <input
+                type="number"
+                min="100"
+                max="500"
+                value={height}
+                onChange={(e) => setHeight(Number(e.target.value))}
+              ></input>
+              px
             </div>
             <div>
               Width
@@ -118,7 +127,14 @@ export default function Post() {
                 value={width}
                 onChange={(e) => setWidth(Number(e.target.value))}
               />
-              {width}px
+              <input
+                type="number"
+                min="100"
+                max="500"
+                value={width}
+                onChange={(e) => setWidth(Number(e.target.value))}
+              />
+              px
             </div>
           </div>
           <div className={styles.canvasCode}>
