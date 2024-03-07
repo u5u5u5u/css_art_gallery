@@ -1,0 +1,34 @@
+.title {
+    text-align: center;
+}
+
+.input {
+    display: flex;
+    text-align: center;
+    line-height: 45;
+    background-color: rgb(49, 177, 194);
+}
+
+.input .children1 {
+    flex-grow: 1;
+    width: 50%;
+
+
+    /* background-color: blue; */
+}
+
+.input .children2 {
+    flex-grow: 1;
+    width: 50%;
+}
+
+.input .children2 .placeholder {
+
+    width: 100%;
+    height: 100%;
+}
+
+/* .input .children2 .placeholder ::placeholder {
+
+    color: #0f0;
+} */

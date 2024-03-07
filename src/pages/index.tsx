@@ -19,10 +19,10 @@ export default function Home() {
         <div>
           <h1>Hello, World!!</h1>
           <div>
-            <Link className={styles.tag} href="/works">各作品</Link>
-            <Link className={styles.tag} href="/search">検索欄</Link>
-            <Link className={styles.tag} href="/post">投稿ページ</Link>
-            <Link className={styles.tag} href="/login">ログインページ</Link>
+            <Link className={styles.tag} href="/works/works">各作品</Link>
+            <Link className={styles.tag} href="/search/search">検索欄</Link>
+            <Link className={styles.tag} href="/post/post">投稿ページ</Link>
+            <Link className={styles.tag} href="/login/login">ログインページ</Link>
           </div>
           <div className={styles.posts}>
             <div className={styles.post}>
