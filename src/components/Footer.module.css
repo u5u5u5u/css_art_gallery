@@ -1,4 +1,10 @@
 .container {
-  background-color: #b93636;
+  background-color: #cfa77c;
   padding: 20px 0;
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 24px;
+  color: #eadeda;
 }
