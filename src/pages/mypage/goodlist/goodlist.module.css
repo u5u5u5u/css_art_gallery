@@ -1,0 +1,27 @@
+.tag {
+    display: block;
+}
+
+.title {
+
+    text-align: center;
+
+}
+
+.posts {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.post {
+    display: block;
+    margin: 10px;
+    display: flex;
+    border: solid 3px #333;
+}
+
+.post .a {
+    font-size: 100px;
+}

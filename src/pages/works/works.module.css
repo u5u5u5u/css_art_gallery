@@ -1,0 +1,31 @@
+.tag {
+    display: block;
+}
+
+.title {
+
+    text-align: center;
+
+}
+
+.postfamily {
+
+    width: 100%;
+}
+
+.post {
+    display: flex;
+    margin: auto;
+}
+
+.img {
+    display: block;
+    border: solid 1px #333;
+    margin: 5px;
+}
+
+.code {
+    display: block;
+    border: solid 1px #333;
+    margin: 5px;
+}
