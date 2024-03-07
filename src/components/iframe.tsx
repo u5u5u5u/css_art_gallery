@@ -14,12 +14,6 @@ type Post = {
   tags: string[];
 };
 
-type Props = {
-  content: string;
-  height: number;
-  width: number;
-};
-
 const PreviewIframe: React.FC<{
   Post: Post;
 }> = ({ Post }) => {
