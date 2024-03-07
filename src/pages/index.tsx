@@ -4,8 +4,8 @@ import styles from "./index.module.css";
 import Link from "next/link";
 
 import { Button } from "../components/Button";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "../components/Header";
+import { Footer } from "../components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
