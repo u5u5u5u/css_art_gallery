@@ -11,8 +11,8 @@ export default function Home() {
 
 
             <h1>ログインページ</h1>
-            <Link className={styles.tag} href="/mypage">マイページ</Link>
-            <Link href="/">ギャラリーに戻る</Link>
+            <Link className={styles.tag} href="../mypage/mypage">マイページ</Link>
+            <Link href="../">ギャラリーに戻る</Link>
         </>
     )
 }
