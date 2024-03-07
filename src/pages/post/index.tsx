@@ -13,7 +13,7 @@ export default function Home() {
                 <h1>投稿しろ！</h1>
                 <h2>Post or Die</h2>
             </div>
-            <Link href="../">ギャラリーに戻る</Link>
+            <Link href="/">ギャラリーに戻る</Link>
             <div className={styles.input}>
                 <div className={styles.children1}></div>
                 <div className={styles.children2}><textarea className={styles.placeholder} placeholder="コードを入力してね！"></textarea></div>
