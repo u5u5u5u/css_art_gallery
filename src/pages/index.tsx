@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "./index.module.css";
 import Link from "next/link";
+import { Button } from "../components/Button";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,12 +18,25 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <div>
-          <h1>Hello, World!!</h1>
+          <div className={styles.title}>
+            <h1>Hello, World!!</h1>
+          </div>
           <div>
-            <Link className={styles.tag} href="/works/works">各作品</Link>
-            <Link className={styles.tag} href="/search/search">検索欄</Link>
-            <Link className={styles.tag} href="/post/post">投稿ページ</Link>
-            <Link className={styles.tag} href="/login/login">ログインページ</Link>
+            <div className={styles.tag}>
+              <Button onClick={() => location.replace("./works/works")}>各作品</Button>
+            </div>
+            <div className={styles.tag}>
+              <Button onClick={() => location.replace("./search/search")}>検索欄</Button>
+            </div>
+            <div className={styles.tag}>
+              <Button onClick={() => location.replace("./post/post")}>投稿ページ</Button>
+            </div>
+            <div className={styles.tag}>
+              <Button onClick={() => location.replace("./login/login")}>ログインページ</Button>
+            </div>
+
+
+
           </div>
           <div className={styles.posts}>
             <div className={styles.post}>
@@ -48,6 +62,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
       </main>
     </>
   );
