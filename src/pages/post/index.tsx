@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
+
 export default function Home() {
     return (
         <>
@@ -18,6 +19,7 @@ export default function Home() {
                 <div className={styles.children1}></div>
                 <div className={styles.children2}><textarea className={styles.placeholder} placeholder="コードを入力してね！"></textarea></div>
             </div>
+            
             <button>post</button>
         </>
     )
