@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./index.module.css";
 import Link from "next/link";
@@ -19,10 +18,34 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <div>
           <h1>Hello, World!!</h1>
-          <div className={styles.tag}>
-            <Link href="/works">各作品</Link>
-            <Link href="/search">検索欄</Link>
-            <Link href="/mypage">マイページ</Link>
+          <div>
+            <Link className={styles.tag} href="/works">各作品</Link>
+            <Link className={styles.tag} href="/search">検索欄</Link>
+            <Link className={styles.tag} href="/post">投稿ページ</Link>
+            <Link className={styles.tag} href="/login">ログインページ</Link>
+          </div>
+          <div className={styles.posts}>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
+            <div className={styles.post}>
+              <h1>post</h1>
+            </div>
           </div>
         </div>
       </main>
