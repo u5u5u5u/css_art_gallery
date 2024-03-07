@@ -1,9 +1,27 @@
 .tag {
-    display: block;
+  display: block;
 }
 
-.title {
-
-    text-align: center;
-
+.pagetitle {
+  text-align: center;
+}
+.placeholder {
+}
+.post {
+  /* display: block; */
+  margin: 10px;
+  display: flex;
+  /* float: left; */
+  border: solid 3px #333;
+}
+.post p {
+  font-size: 100px;
+}
+.a {
+  display: flex;
+  flex-wrap: wrap;
+}
+.icon {
+  font-size: 100px;
+  border: solid 3px #333;
 }
