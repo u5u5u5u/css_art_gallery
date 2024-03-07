@@ -1,1 +1,21 @@
-.tag {}
+.tag {
+    display: block;
+}
+
+.posts {
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.post {
+    display: block;
+    margin: 10px;
+    display: flex;
+    border: solid 3px #333;
+}
+
+.post h1 {
+    font-size: 100px;
+}
