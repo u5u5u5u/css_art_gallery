@@ -43,7 +43,7 @@ export default function Home() {
 
           {(function () {
             const list = [];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 50; i++) {
               list.push(
                 <div className={styles.post}>
                   <h1>post</h1>
