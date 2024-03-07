@@ -2,7 +2,9 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "./index.module.css";
 import Link from "next/link";
+
 import { Button } from "../components/Button";
+import { Header } from "@/components/Header";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,27 +18,31 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header label="CSS Arts Gallery" />
       <main className={`${styles.main} ${inter.className}`}>
         <div>
           <div className={styles.title}>
             <h1>Hello, World!!</h1>
           </div>
           <div>
-            <div className={styles.tag}>
-              <Button onClick={() => location.replace("./works/works")}>各作品</Button>
-            </div>
-            <div className={styles.tag}>
-              <Button onClick={() => location.replace("./search/search")}>検索欄</Button>
-            </div>
-            <div className={styles.tag}>
-              <Button onClick={() => location.replace("./post/post")}>投稿ページ</Button>
-            </div>
-            <div className={styles.tag}>
+
+           
+
+
+
+
+            <Link className={styles.tag} href="/works">
+              各作品
+            </Link>
+            <Link className={styles.tag} href="/search">
+              検索欄
+            </Link>
+            <Link className={styles.tag} href="/post">
+              投稿ページ
+            </Link>
+           <div className={styles.tag}>
               <Button onClick={() => location.replace("./login/login")}>ログインページ</Button>
             </div>
-
-
-
           </div>
           <div className={styles.posts}>
             <div className={styles.post}>
