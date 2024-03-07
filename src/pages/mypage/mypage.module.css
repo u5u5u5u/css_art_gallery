@@ -5,13 +5,26 @@
 .pagetitle {
   text-align: center;
 }
-.placeholder {
+.page_s_title {
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+}
+.placeholder_name {
+  width: 30%;
+  resize: none;
+  height: 100px;
+  border-radius: 10px;
+}
+.placeholder_detail {
+  width: 60%;
+  resize: none;
+  height: 300px;
+  border-radius: 10px;
 }
 .post {
-  /* display: block; */
   margin: 10px;
   display: flex;
-  /* float: left; */
   border: solid 3px #333;
 }
 .post p {
@@ -22,6 +35,43 @@
   flex-wrap: wrap;
 }
 .icon {
-  font-size: 100px;
+  width: 200px;
+  height: 200px;
   border: solid 3px #333;
+  margin: 1%;
+  border-radius: 50%;
+}
+
+.icon_name_detail {
+  display: flex;
+  height: 200px;
+  width: 100%;
+}
+.name_detail {
+  margin: 1%;
+  width: 40%;
+}
+.name {
+  height: 30px;
+}
+.detail_frame {
+  width: 100%;
+  border: solid 3px #333;
+  height: 170px;
+  border-radius: 10px;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  width: 40px;
+}
+.modal_parent {
+  width: 50%;
+  height: 100%;
+}
+.modal_grandparent {
+  display: flex;
+  flex-direction: column;
 }

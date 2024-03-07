@@ -3,10 +3,19 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./mypage.module.css";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import React, { useState } from "react";
+import Modal from "react-modal";
 
 export default function Home() {
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+  const closeModal = () => {
+    setModal(false);
+  };
+
   return (
     <>
       <div className={styles.pagetitle}>
@@ -19,23 +28,42 @@ export default function Home() {
         ギャラリーに戻る
       </Link>
 
-      {/* 名前 */}
-      <div>名前</div>
+      <div className={styles.icon_name_detail}>
+        {/* アイコン */}
+        <div className={styles.icon}></div>
 
-      {/* アイコン */}
-      <div className={styles.icon}>アイコン</div>
+        <div className={styles.name_detail}>
+          {/* 名前 */}
+          <div className={styles.name}>名前</div>
 
-      {/* 自己紹介 */}
-      <div>
-        <textarea
-          className={styles.placeholder}
-          placeholder=" 自己紹介"
-        ></textarea>
+          {/* 自己紹介 */}
+          <div>
+            <div className={styles.detail_frame}></div>
+            <button onClick={openModal}>編集</button>
+            <div className={styles.modal_grandparent}>
+              <Modal isOpen={modal} className={styles.modal_parent}>
+                <div className={styles.modal}>
+                  <textarea
+                    className={styles.placeholder_name}
+                    placeholder=" 名前"
+                  ></textarea>
+                  <textarea
+                    className={styles.placeholder_detail}
+                    placeholder=" 自己紹介"
+                  ></textarea>
+                  <button className={styles.button} onClick={closeModal}>
+                    close
+                  </button>
+                </div>
+              </Modal>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* 自分の作品 */}
       <div>
-        <div className={styles.title}>自分の作品</div>
+        <div className={styles.page_s_title}>自分の作品</div>
         {(function () {
           const list = [];
           for (let i = 0; i < 10; i++) {
