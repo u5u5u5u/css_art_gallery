@@ -27,7 +27,9 @@ const StringToHtml: React.FC = () => {
       </div>
       <Link href="/">ギャラリーに戻る</Link>
       <div className={styles.input}>
-        <div className={styles.children1}></div>
+        <div className={styles.children1}>
+          <h1>aaa</h1>
+        </div>
         <div className={styles.children2}>
           <textarea
             id="text"
@@ -46,4 +48,3 @@ const StringToHtml: React.FC = () => {
 };
 
 export default StringToHtml;
-
