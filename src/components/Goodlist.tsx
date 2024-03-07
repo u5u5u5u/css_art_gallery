@@ -88,8 +88,12 @@ export const GoodList = () => {
     <div>
       <h1>Good List</h1>
       <div className={styles.goodPosts}>
-        {goodPosts.map((good) => {
-          return <PreviewIframe Post={good} />;
+        {goodPosts.map((good, index) => {
+          return (
+            <div key={index} className={styles.goodPost}>
+              <PreviewIframe Post={good} />
+            </div>
+          );
         })}
       </div>
     </div>
