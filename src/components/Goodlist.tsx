@@ -5,6 +5,7 @@ import { Content } from "next/font/google";
 import { set } from "firebase/database";
 
 type Post = {
+  id: string;
   title: string;
   height: number;
   width: number;
@@ -17,6 +18,7 @@ type Post = {
 
 const goods: Post[] = [
   {
+    id: "1",
     title: "Simple Square",
     height: 300,
     width: 300,
@@ -27,6 +29,7 @@ const goods: Post[] = [
     tags: ["square", "blue", "simple"],
   },
   {
+    id: "2",
     title: "Red Circle",
     height: 100,
     width: 100,
@@ -37,6 +40,7 @@ const goods: Post[] = [
     tags: ["circle", "red", "simple"],
   },
   {
+    id: "3",
     title: "Green Rectangle",
     height: 150,
     width: 250,
@@ -47,6 +51,7 @@ const goods: Post[] = [
     tags: ["rectangle", "green", "simple"],
   },
   {
+    id: "4",
     title: "Blue Triangle",
     height: 200,
     width: 200,
@@ -57,6 +62,7 @@ const goods: Post[] = [
     tags: ["triangle", "blue", "simple"],
   },
   {
+    id: "5",
     title: "Yellow Ellipse",
     height: 300,
     width: 400,
@@ -67,6 +73,7 @@ const goods: Post[] = [
     tags: ["ellipse", "yellow", "simple"],
   },
   {
+    id: "6",
     title: "Purple Polygon",
     height: 500,
     width: 500,

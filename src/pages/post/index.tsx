@@ -2,7 +2,16 @@ import styles from "./post.module.css";
 import Link from "next/link";
 import React, { useState, useEffect, useRef } from "react";
 import { getAuth } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  collection,
+  doc,
+  addDoc,
+  setDoc,
+  updateDoc,
+  arrayUnion,
+} from "firebase/firestore";
+import { set } from "firebase/database";
 
 const db = getFirestore();
 const auth = getAuth();
@@ -59,28 +68,33 @@ export default function Post() {
       authorId: `${auth.currentUser?.uid}`,
       tags: tags,
     });
+
     console.log("Document written with ID: ", docRef.id);
 
-    const myWorksRef = collection(
-      db,
-      "Users",
-      `${auth.currentUser?.uid}`,
-      "MyWorks"
+    // ドキュメントに自身のドキュメントIDを追加
+    await setDoc(docRef, { id: docRef.id }, { merge: true });
+
+    const myWorksRef = doc(db, "UsersWorks", `${auth.currentUser?.uid}`);
+    await setDoc(
+      myWorksRef,
+      {
+        workIds: arrayUnion(docRef.id),
+      },
+      { merge: true }
     );
-    const myDocRef = await addDoc(myWorksRef, {
-      myWorkId: docRef.id,
-    });
-    console.log("Document written with ID: ", myDocRef.id);
 
     tags.map(async (tag) => {
-      const tagRef = collection(db, "Tags", `${tag}`, "Works");
-      const tagDocRef = await addDoc(tagRef, {
-        tagId: docRef.id,
-      });
-      console.log("Document written with ID: ", tagDocRef.id);
+      // タグのコレクションにタグの名前のドキュメントを追加
+      const tagRef = doc(db, "Tags", tag);
+      await setDoc(
+        tagRef,
+        {
+          workIds: arrayUnion(docRef.id),
+        },
+        { merge: true }
+      );
     });
   }
-
   return (
     <>
       <Link href="/">ギャラリーに戻る</Link>
