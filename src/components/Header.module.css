@@ -2,12 +2,27 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #b93636;
+  background-color: #cfa77c;
   height: 100px;
-  padding: 20px 0;
+  padding: 20px 20px;
+}
+
+.logo {
+  font-size: 48px;
+  color: #eadeda;
 }
 
 .wrapper {
   display: flex;
   align-items: center;
+}
+
+.search {
+  margin-left: 20px;
+}
+
+.user {
+  border: 5px solid #eadeda;
+  border-radius: 50%;
+  margin-left: 20px;
 }

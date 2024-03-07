@@ -1,19 +1,28 @@
 import React from "react";
 import Image from "next/image";
-import { ReactNode } from "react";
 import styles from "./Header.module.css";
+import { PostButton } from "./PostButton";
 
-type Props = {
-  label: ReactNode;
-};
-
-export const Header = ({ label }: Props) => {
+export const Header = () => {
   return (
     <header className={styles.container}>
-      <h1>{label}</h1>
+      <h1 className={styles.logo}>CSS Art Gallery</h1>
       <div className={styles.wrapper}>
-        <button>create</button>
-        <Image width={50} height={50} src="/userIcon.svg" alt="User" />
+        <PostButton>+ POST</PostButton>
+        <Image
+          width={50}
+          height={50}
+          className={styles.search}
+          src="/search.svg"
+          alt="Search"
+        />
+        <Image
+          width={50}
+          height={50}
+          className={styles.user}
+          src="/user.svg"
+          alt="User"
+        />
       </div>
     </header>
   );
