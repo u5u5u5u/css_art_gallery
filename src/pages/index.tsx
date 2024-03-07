@@ -2,7 +2,10 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "./index.module.css";
 import Link from "next/link";
+
+import { Button } from "../components/Button";
 import { Header } from "@/components/Header";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,8 +21,16 @@ export default function Home() {
       <Header label="CSS Arts Gallery" />
       <main className={`${styles.main} ${inter.className}`}>
         <div>
-          <h1>Hello, World!!</h1>
+          <div className={styles.title}>
+            <h1>Hello, World!!</h1>
+          </div>
           <div>
+
+           
+
+
+
+
             <Link className={styles.tag} href="/works">
               各作品
             </Link>
@@ -29,9 +40,9 @@ export default function Home() {
             <Link className={styles.tag} href="/post">
               投稿ページ
             </Link>
-            <Link className={styles.tag} href="/login">
-              ログインページ
-            </Link>
+           <div className={styles.tag}>
+              <Button onClick={() => location.replace("./login/login")}>ログインページ</Button>
+            </div>
           </div>
           <div className={styles.posts}>
             <div className={styles.post}>
@@ -57,6 +68,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+
       </main>
     </>
   );
