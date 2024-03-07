@@ -12,7 +12,7 @@ export default function Home() {
 
 
             <h1>検索欄</h1>
-            <Link href="/">ギャラリーに戻る</Link>
+            <Link href="../">ギャラリーに戻る</Link>
         </>
     )
 }
