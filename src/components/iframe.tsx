@@ -1,6 +1,9 @@
+import Link from "next/link";
+import style from "./iframe.module.css";
 import React, { useRef, useEffect } from "react";
 
 type Post = {
+  id: string;
   title: string;
   height: number;
   width: number;
@@ -9,12 +12,6 @@ type Post = {
   author: string;
   authorId: string;
   tags: string[];
-};
-
-type Props = {
-  content: string;
-  height: number;
-  width: number;
 };
 
 const PreviewIframe: React.FC<{
@@ -32,16 +29,23 @@ const PreviewIframe: React.FC<{
   }, []);
 
   return (
-    <iframe
-      ref={iframeRef}
-      id="preview"
-      style={{
-        width: Post.width,
-        height: Post.height,
-        border: "none",
-      }}
-      scrolling="no"
-    ></iframe>
+    <>
+      <div className={style.work}>
+        <iframe
+          ref={iframeRef}
+          id="preview"
+          style={{
+            width: Post.width,
+            height: Post.height,
+            border: "none",
+          }}
+          scrolling="no"
+        ></iframe>
+        <div className={style.title}>
+          <Link href={`/post/${Post.id}`}>{Post.title}</Link>
+        </div>
+      </div>
+    </>
   );
 };
 
