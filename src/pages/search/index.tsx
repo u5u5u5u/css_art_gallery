@@ -1,6 +1,7 @@
-
+import Head from "next/head";
+import Image from "next/image";
 import { Inter } from "next/font/google";
-import styles from "./login.module.css";
+import styles from "./search.module.css";
 import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -10,10 +11,9 @@ export default function Home() {
         <>
 
             <div className={styles.title}>
-                <h1>ログインページ</h1>
+                <h1>検索欄</h1>
             </div>
-            <Link className={styles.tag} href="../mypage/mypage">マイページ</Link>
-            <Link href="../">ギャラリーに戻る</Link>
+            <Link href="/">ギャラリーに戻る</Link>
         </>
     )
 }

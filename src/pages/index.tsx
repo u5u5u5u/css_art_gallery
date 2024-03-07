@@ -26,42 +26,39 @@ export default function Home() {
           </div>
           <div>
             <Link className={styles.tag} href="/works">
+
               各作品
             </Link>
-            <Link className={styles.tag} href="/search">
+            <Link className={styles.tag} href="./search">
               検索欄
             </Link>
-            <Link className={styles.tag} href="/post">
+            <Link className={styles.tag} href="./post">
               投稿ページ
             </Link>
             <div className={styles.tag}>
               <Button onClick={() => location.replace("./login/login")}>
                 ログインページ
               </Button>
+
             </div>
           </div>
+          
           <div className={styles.posts}>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
-            <div className={styles.post}>
-              <h1>post</h1>
-            </div>
+
+{
+          (function () {
+            const list = [];
+            for (let i = 0; i < 10; i++) {
+              list.push(
+              <div className={styles.post}>
+                <h1>post</h1>
+              </div>
+              );
+            }
+            return <ul>{list}</ul>;
+          }())
+        }
+           
           </div>
         </div>
       </main>
