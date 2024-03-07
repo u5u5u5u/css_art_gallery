@@ -21,7 +21,7 @@ export default function Home() {
             </div>
 
 
-            <Link className={styles.tag} href="../../">ギャラリーに戻る</Link>
+            <Link className={styles.tag} href="/">ギャラリーに戻る</Link>
             <GoodList />
         </>
     )

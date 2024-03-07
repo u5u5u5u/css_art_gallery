@@ -12,8 +12,8 @@ export default function Home() {
             <div className={styles.title}>
                 <h1>kakusakuhinnじゃなくてworks</h1>
             </div>
-            <Link className={styles.tag} href="../login/login">ログインページ</Link>
-            <Link href="../">ギャラリーに戻る</Link>
+            <Link className={styles.tag} href="../login">ログインページ</Link>
+            <Link href="/">ギャラリーに戻る</Link>
             <div className={styles.postfamily}>
                 <div className={styles.post}>
                     <div className={styles.img}>image</div>
