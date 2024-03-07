@@ -36,7 +36,13 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home() {
   async function Addfavorite() {
     console.log("like");
-    const favRef = collection(db, "User", "UserId", "Favorite");
+    const user = auth.currentUser;
+    const favRef = collection(
+      db,
+      "User",
+      `${auth.currentUser?.uid}`,
+      "Favorite"
+    );
     const docRef = await addDoc(favRef, {
       favId: "favId",
     });
@@ -49,9 +55,22 @@ export default function Home() {
       title: "title",
       html: "html",
       css: "css",
+      author: `${auth.currentUser?.displayName}`,
     });
     console.log("Document written with ID: ", docRef.id);
+
+    const myWorksRef = collection(
+      db,
+      "Users",
+      `${auth.currentUser?.uid}`,
+      "MyWorks"
+    );
+    const myDocRef = await addDoc(myWorksRef, {
+      myWorkId: docRef.id,
+    });
+    console.log("Document written with ID: ", myDocRef.id);
   }
+
   async function login() {
     signInWithPopup(auth, provider)
       .then((result) => {
