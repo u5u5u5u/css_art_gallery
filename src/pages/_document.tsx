@@ -1,6 +1,4 @@
 import { Html, Head, Main, NextScript } from "next/document";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 
 export default function Document() {
   return (
