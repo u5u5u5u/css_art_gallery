@@ -5,7 +5,7 @@ import Link from "next/link";
 
 import { Button } from "../components/Button";
 import { Header } from "@/components/Header";
-
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +25,6 @@ export default function Home() {
             <h1>Hello, World!!</h1>
           </div>
           <div>
-
-           
-
-
-
-
             <Link className={styles.tag} href="/works">
               各作品
             </Link>
@@ -40,8 +34,10 @@ export default function Home() {
             <Link className={styles.tag} href="/post">
               投稿ページ
             </Link>
-           <div className={styles.tag}>
-              <Button onClick={() => location.replace("./login/login")}>ログインページ</Button>
+            <div className={styles.tag}>
+              <Button onClick={() => location.replace("./login/login")}>
+                ログインページ
+              </Button>
             </div>
           </div>
           <div className={styles.posts}>
@@ -68,8 +64,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-
       </main>
+      <Footer />
     </>
   );
 }
