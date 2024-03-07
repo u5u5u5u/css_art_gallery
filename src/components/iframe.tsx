@@ -1,30 +1,51 @@
+import Link from "next/link";
+import style from "./iframe.module.css";
 import React, { useRef, useEffect } from "react";
 
-const PreviewIframe: React.FC<{
-  html: string;
+type Post = {
+  id: string;
+  title: string;
   height: number;
   width: number;
-}> = ({ html, height, width }) => {
+  html: string;
+  css: string;
+  author: string;
+  authorId: string;
+  tags: string[];
+};
+
+const PreviewIframe: React.FC<{
+  Post: Post;
+}> = ({ Post }) => {
   const iframeRef = useRef(null);
 
   useEffect(() => {
+    const content = Post.html + "<style>" + Post.css + "</style>";
     const iframe: any = iframeRef.current;
     const doc = iframe.contentWindow.document;
     doc.open();
-    doc.write(html);
+    doc.write(content);
     doc.close();
-  }, [html]);
+  }, []);
 
   return (
-    <iframe
-      ref={iframeRef}
-      id="preview"
-      style={{
-        width: width,
-        height: height,
-        border: "none",
-      }}
-    ></iframe>
+    <>
+      <div className={style.work}>
+        <iframe
+          ref={iframeRef}
+          id="preview"
+          style={{
+            width: Post.width,
+            height: Post.height,
+            border: "none",
+          }}
+          scrolling="no"
+        ></iframe>
+        <div className={style.title}>
+          <Link href={`/post/${Post.id}`}>{Post.title}</Link>
+        </div>
+      </div>
+    </>
   );
 };
 

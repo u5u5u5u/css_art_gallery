@@ -1,4 +1,3 @@
-
 .canvas {
   display: flex;
   flex-direction: column;
@@ -6,7 +5,9 @@
   justify-content: center;
   height: 530px;
 }
-
+.canvas_children {
+  background-color: #fff;
+}
 .editor {
   display: flex;
   flex-direction: column;

@@ -15,6 +15,7 @@ type Post = {
   authorId: string;
   tags: string[];
 };
+
 const goods: Post[] = [
   {
     id: "1",
@@ -60,9 +61,7 @@ const goods: Post[] = [
     authorId: "author-id",
     tags: ["triangle", "blue", "simple"],
   },
- 
-ts 
-{
+  {
     id: "5",
     title: "Yellow Ellipse",
     height: 300,
