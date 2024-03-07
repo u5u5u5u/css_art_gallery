@@ -3,12 +3,7 @@
 }
 
 .title {
-    text-align: center;
-}
-
-.posts {
-/*     display: flex; */
-    flex-wrap: wrap;
+  text-align: center;
 }
 
 .post {
@@ -17,16 +12,12 @@
   /* display: flex; */
   float: left;
   border: solid 3px #333;
- 
 }
-
 
 .post h1 {
   font-size: 100px;
 }
-.a{
+.a {
   display: flex;
-  
+  flex-wrap: wrap;
 }
-
-
