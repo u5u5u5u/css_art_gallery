@@ -8,7 +8,6 @@ import {
   doc,
   addDoc,
   setDoc,
-  updateDoc,
   arrayUnion,
 } from "firebase/firestore";
 import { set } from "firebase/database";

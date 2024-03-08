@@ -40,7 +40,6 @@ const auth = getAuth();
 
 export default function Home() {
   const [works, setWorks] = useState<Post[]>([]);
-  const [userState, setUserState] = useState<boolean>(false);
 
   useEffect(() => {
     // ユーザーのログイン状態を確認する
@@ -51,9 +50,12 @@ export default function Home() {
         console.log("not logged in");
       }
     });
-
     return () => unsubscribe(); // cleanup function
   }, []);
+
+  useEffect(() => {
+    console.log(works);
+  }, [works]);
 
   async function getWorks() {
     // ここでworksのデータを取得して表示する
@@ -65,7 +67,7 @@ export default function Home() {
       worksList.push(doc.data() as Post);
     });
     setWorks(worksList);
-    console.log(worksList);
+    console.log(works);
   }
 
   return (
@@ -82,6 +84,8 @@ export default function Home() {
           <div className={styles.title}>
             <h1>Hello, World!!</h1>
           </div>
+
+          <PostList Post={works} />
           <div>
             <Link className={styles.tag} href="./search">
               検索欄
@@ -93,9 +97,6 @@ export default function Home() {
               <Button onClick={() => location.replace("./login")}>
                 ログインページ
               </Button>
-            </div>
-            <div>
-              <PostList Post={works} />
             </div>
           </div>
         </div>
