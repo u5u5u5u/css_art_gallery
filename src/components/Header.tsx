@@ -3,7 +3,6 @@ import Image from "next/image";
 import styles from "./Header.module.css";
 import { PostButton } from "./PostButton";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import Link from "next/link";
 
 const auth = getAuth();
 
@@ -11,6 +10,7 @@ export const Header = () => {
   var user = auth.currentUser;
 
   const [userState, setUserState] = useState(false);
+  const [searchWord, setSearchWord] = useState("");
 
   useEffect(() => {
     // ユーザーのログイン状態を確認する
@@ -34,6 +34,10 @@ export const Header = () => {
     }
   };
 
+  const search = () => {
+    location.replace(`/search?word=${searchWord}`);
+  };
+
   return (
     <header className={styles.container}>
       <h1 className={styles.logo}>CSS Art Gallery</h1>
@@ -42,7 +46,12 @@ export const Header = () => {
           + POST
         </PostButton>
 
-        <input type="search" name="search" className={styles.input} />
+        <input
+          type="search"
+          name="search"
+          className={styles.input}
+          onChange={(e) => setSearchWord(e.target.value)}
+        />
 
         <Image
           width={50}
@@ -50,6 +59,7 @@ export const Header = () => {
           className={styles.search}
           src="/search.svg"
           alt="Search"
+          onClick={search}
         />
         <input type="checkbox" className={styles.search_check} />
         <Image
