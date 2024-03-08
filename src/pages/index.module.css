@@ -3,9 +3,8 @@
 }
 
 .post {
-  /* display: block; */
   margin: 10px;
-  /* display: flex; */
+
   float: left;
   border: solid 3px #333;
 }
