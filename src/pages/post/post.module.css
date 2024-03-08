@@ -5,9 +5,11 @@
   justify-content: center;
   height: 530px;
 }
+
 .canvas_children {
   background-color: #fff;
 }
+
 .editor {
   display: flex;
   flex-direction: column;
@@ -48,4 +50,9 @@
 .workDetail input {
   margin: 5px 0;
   padding: 3px;
+}
+.placeholder {
+  font-family: consolas, "Courier New", monospace;
+  font-size: 25px;
+  padding: 10px;
 }
