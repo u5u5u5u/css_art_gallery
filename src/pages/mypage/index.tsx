@@ -5,6 +5,7 @@ import styles from "./mypage.module.css";
 import Link from "next/link";
 import { PostList } from "@/components/Goodlist";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 import Modal from "react-modal";
@@ -25,6 +26,9 @@ const auth = getAuth();
 const db = getFirestore();
 
 export default function Home() {
+  const router = useRouter();
+  const { uid } = router.query;
+
   const [modal, setModal] = useState(false);
   const [works, setWorks] = useState<Post[]>([]);
 
@@ -45,12 +49,12 @@ export default function Home() {
       }
     });
     return () => unsubscribe(); // cleanup function
-  }, []);
+  }, [uid]);
 
   async function getMyWorksId() {
     // ここでUserFavoritesのデータを取得して表示する
     const user = auth.currentUser;
-    const docRef = doc(db, "UsersWorks", `${user?.uid}`);
+    const docRef = doc(db, "UsersWorks", `${uid}`);
 
     const docSnapshot = await getDoc(docRef);
     if (docSnapshot.exists()) {
@@ -81,9 +85,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.pagetitle}>
-        <h1>マイページ</h1>
-      </div>
+      <div className={styles.pagetitle}></div>
       <Link className={styles.tag} href="../mypage/goodlist">
         いいねした作品
       </Link>
@@ -122,7 +124,7 @@ export default function Home() {
       </div>
 
       <div>
-        <div className={styles.page_s_title}>自分の作品</div>
+        <div className={styles.page_s_title}>作品</div>
         <PostList Post={works} />
       </div>
     </>
