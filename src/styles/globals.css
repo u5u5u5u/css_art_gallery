@@ -6,9 +6,6 @@
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
 }
 
-/* @media (prefers-color-scheme: dark) {
-} */
-
 * {
   box-sizing: border-box;
   color: #351b01;
