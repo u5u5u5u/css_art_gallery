@@ -10,7 +10,13 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 import Modal from "react-modal";
 import { PostButton } from "../../components/PostButton";
-import clsx from "clsx";
+import { set } from "firebase/database";
+
+type profile = {
+  uid: string;
+  displayName: string;
+  introduction: string;
+};
 
 type Post = {
   id: string;
@@ -33,6 +39,7 @@ export default function Home() {
 
   const [modal, setModal] = useState(false);
   const [works, setWorks] = useState<Post[]>([]);
+  const [profile, setProfile] = useState<profile>();
 
   const openModal = () => {
     setModal(true);
@@ -46,6 +53,7 @@ export default function Home() {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         await getMyWorksId();
+        await getMyInfo();
       } else {
         console.log("not logged in");
       }
@@ -63,6 +71,18 @@ export default function Home() {
       console.log("Document data:", docSnapshot.data());
       const workIds: string[] = docSnapshot.data()?.workIds;
       fetchWorks(workIds);
+    } else {
+      console.log("No such document!");
+    }
+  }
+
+  async function getMyInfo() {
+    const user = auth.currentUser;
+    const docRef = doc(db, "UsersProfile", `${uid}`);
+    const docSnapshot = await getDoc(docRef);
+    if (docSnapshot.exists()) {
+      console.log("Document data:", docSnapshot.data());
+      setProfile(docSnapshot.data() as profile);
     } else {
       console.log("No such document!");
     }
@@ -87,7 +107,7 @@ export default function Home() {
 
   return (
     <>
-
+      <h2>{profile?.displayName}のページ</h2>
       <Link className={styles.tag} href="../mypage/goodlist">
         いいねした作品
       </Link>
@@ -128,7 +148,7 @@ export default function Home() {
         </div>
       </div>
       <div>
-        <div className={styles.page_s_title}>作品</div>
+        <div className={styles.page_s_title}>{profile?.displayName}の作品</div>
         <PostList Post={works} />
       </div>
     </>
