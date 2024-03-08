@@ -9,6 +9,8 @@ import { useRouter } from "next/router";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, collection, doc, getDoc } from "firebase/firestore";
 import Modal from "react-modal";
+import { PostButton } from "../../components/PostButton";
+import clsx from "clsx";
 
 type Post = {
   id: string;
@@ -85,7 +87,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={styles.pagetitle}></div>
+
       <Link className={styles.tag} href="../mypage/goodlist">
         いいねした作品
       </Link>
@@ -97,32 +99,34 @@ export default function Home() {
         <div className={styles.icon}></div>
 
         <div className={styles.name_detail}>
-          <div className={styles.name}>名前</div>
+          <div className={styles.name}>hoge</div>
 
           <div>
-            <div className={styles.detail_frame}></div>
-            <button onClick={openModal}>編集</button>
+            <div className={styles.detail_frame}>hogehoge</div>
+            <PostButton onClick={openModal} className={styles.edit_button}>
+              編集
+            </PostButton>
             <div className={styles.modal_grandparent}>
               <Modal isOpen={modal} className={styles.modal_parent}>
-                <div className={styles.modal}>
-                  <textarea
-                    className={styles.placeholder_name}
-                    placeholder=" 名前"
-                  ></textarea>
-                  <textarea
-                    className={styles.placeholder_detail}
-                    placeholder=" 自己紹介"
-                  ></textarea>
-                  <button className={styles.button} onClick={closeModal}>
-                    close
-                  </button>
-                </div>
+                <textarea
+                  className={styles.placeholder_name}
+                  placeholder=" 名前"
+                ></textarea>
+                <textarea
+                  className={styles.placeholder_detail}
+                  placeholder=" 自己紹介"
+                ></textarea>
+                <PostButton
+                  onClick={closeModal}
+                  className={styles.close_button}
+                >
+                  閉じる
+                </PostButton>
               </Modal>
             </div>
           </div>
         </div>
       </div>
-
       <div>
         <div className={styles.page_s_title}>作品</div>
         <PostList Post={works} />
