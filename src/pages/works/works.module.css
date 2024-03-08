@@ -1,31 +1,49 @@
-.tag {
-    display: block;
+.canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 530px;
+}
+.canvas_children {
+  background-color: #fff;
+}
+.editor {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
 }
 
-.title {
-
-    text-align: center;
-
-}
-
-.postfamily {
-
-    width: 100%;
-}
-
-.post {
-    display: flex;
-    margin: auto;
-}
-
-.img {
-    display: block;
-    border: solid 1px #333;
-    margin: 5px;
+.canvasCode {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .code {
-    display: block;
-    border: solid 1px #333;
-    margin: 5px;
+  width: 50%;
+}
+
+.codeContent {
+  white-space: pre;
+}
+
+.canvasProp {
+  display: flex;
+  justify-content: space-around;
+}
+
+.workDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin: 10px 20px;
+}
+
+.workDetail input {
+  margin: 5px 0;
+  padding: 3px;
 }
