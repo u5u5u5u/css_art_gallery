@@ -9,13 +9,11 @@ export const Header = () => {
     <header className={styles.container}>
       <h1 className={styles.logo}>CSS Art Gallery</h1>
       <div className={styles.wrapper}>
-
-
         <PostButton onClick={() => location.replace("./post")}>
           + POST
         </PostButton>
 
-           <input type="search" name="search" className={styles.input} />
+        <input type="search" name="search" className={styles.input} />
 
         <Image
           width={50}
@@ -24,7 +22,7 @@ export const Header = () => {
           src="/search.svg"
           alt="Search"
         />
-   <input type="checkbox" className={styles.search_check} />
+        <input type="checkbox" className={styles.search_check} />
         <Link href="/mypage">
           <Image
             width={50}

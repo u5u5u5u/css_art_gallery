@@ -19,7 +19,7 @@
 }
 
 .search {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .user {
@@ -27,17 +27,22 @@
   border-radius: 50%;
   margin-left: 20px;
 }
+
 .input {
   visibility: visible;
-  border-radius: 10px;
-  font-size: 30px;
-  margin: 10px;
+  width: 200px;
+  border-radius: 30px;
+  font-size: 32px;
+  padding: 5px 10px;
+  margin-left: 20px;
 }
+
 .search_check {
   display: none;
   height: 100px;
   width: 100px;
 }
+
 .search_check:checked + .input {
   visibility: hidden;
 }
