@@ -50,9 +50,6 @@ export default function Home() {
         <h1>ログインページ</h1>
         <button onClick={login}>Googleでログイン</button>
       </div>
-      <Link className={styles.tag} href="../mypage">
-        マイページ
-      </Link>
       <Link href="/">ギャラリーに戻る</Link>
     </>
   );
