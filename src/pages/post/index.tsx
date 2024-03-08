@@ -43,6 +43,7 @@ export default function Post() {
     const content =
       htmlareaRef.current.value +
       "<style>" +
+      "body { margin: 0;}" +
       cssareaRef.current.value +
       "</style>";
     const iframe = iframeRef.current;
