@@ -13,6 +13,7 @@ import { PostButton } from "@/components/PostButton";
 import PreviewIframe from "@/components/iframe";
 import styles from "./works.module.css";
 import Link from "next/link";
+import { title } from "process";
 
 type Post = {
   id: string;
@@ -124,7 +125,6 @@ export default function Home() {
 
   return (
     <>
-      <Link href="/">ギャラリーに戻る</Link>
       <div>
         <h1 className={styles.title}>{workData?.title}</h1>
         <div className={styles.canvas}>
@@ -135,14 +135,17 @@ export default function Home() {
             お気に入りに追加
           </PostButton>
         </div>
-        <h2>author</h2>
         <div className={styles.author}>
-          <Link href={`/mypage?uid=${workData?.authorId}`}>
+          <h2 className={styles.sub_title}>author</h2>
+          <Link
+            href={`/mypage?uid=${workData?.authorId}`}
+            className={styles.name}
+          >
             {workData?.author}
           </Link>
         </div>
-        <h2>tags</h2>
         <div className={styles.tag_group}>
+          <h2 className={styles.sub_title}>tags</h2>
           {workData?.tags.map((tag) => (
             <span key={tag} className={styles.tag}>
               {tag}
@@ -162,6 +165,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Link href="/" className={styles.back}>
+          戻る
+        </Link>
       </div>
     </>
   );
