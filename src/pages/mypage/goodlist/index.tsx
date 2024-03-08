@@ -78,7 +78,6 @@ export default function Home() {
         worksList.push(docSnapshot.data() as Post);
       }
     }
-
     setWorks(worksList);
   }
 
