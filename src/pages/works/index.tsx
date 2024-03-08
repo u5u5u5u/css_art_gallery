@@ -1,8 +1,15 @@
 import { Inter } from "next/font/google";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { onAuthStateChanged, getAuth } from "firebase/auth";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  arrayUnion,
+} from "firebase/firestore";
+import { PostButton } from "@/components/PostButton";
 import PreviewIframe from "@/components/iframe";
 import styles from "./works.module.css";
 import Link from "next/link";
@@ -28,6 +35,19 @@ export default function Home() {
   const router = useRouter();
   const { id } = router.query;
   const [workData, setWorkData] = useState<Post>();
+
+  async function Addfavorite() {
+    console.log("like");
+    const user = auth.currentUser;
+    const favRef = doc(db, "UserFavorites", `${user?.uid}`);
+    await setDoc(
+      favRef,
+      {
+        workIds: arrayUnion(workData?.id),
+      },
+      { merge: true }
+    );
+  }
 
   useEffect(() => {
     // ユーザーのログイン状態を確認する
@@ -106,8 +126,24 @@ export default function Home() {
     <>
       <Link href="/">ギャラリーに戻る</Link>
       <div>
+        <h1 className={styles.title}>{workData?.title}</h1>
         <div className={styles.canvas}>
           {workData && <PreviewIframe Post={workData} />}
+        </div>
+        <div className={styles.button}>
+          <PostButton onClick={Addfavorite} className={styles.favoriteButton}>
+            お気に入りに追加
+          </PostButton>
+        </div>
+        <h2>author</h2>
+        <div className={styles.author}>{workData?.author}</div>
+        <h2>tags</h2>
+        <div className={styles.tag_group}>
+          {workData?.tags.map((tag) => (
+            <span key={tag} className={styles.tag}>
+              {tag}
+            </span>
+          ))}
         </div>
         <div className={styles.workDetail}></div>
         <div className={styles.editor}>
