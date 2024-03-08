@@ -11,6 +11,7 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { set } from "firebase/database";
+import { PostButton } from "@/components/PostButton";
 
 const db = getFirestore();
 const auth = getAuth();
@@ -42,7 +43,6 @@ export default function Post() {
     const content =
       htmlareaRef.current.value +
       "<style>" +
-      "body { margin: 0;}" +
       cssareaRef.current.value +
       "</style>";
     const iframe = iframeRef.current;
@@ -97,7 +97,6 @@ export default function Post() {
   }
   return (
     <>
-      <Link href="/">ギャラリーに戻る</Link>
       <div>
         <div className={styles.canvas}>
           <iframe
@@ -114,8 +113,8 @@ export default function Post() {
         </div>
         <div className={styles.editor}>
           <div className={styles.canvasProp}>
-            <div>
-              Height
+            <div className={styles.height_range}>
+              <p>Height</p>
               <input
                 type="range"
                 min="100"
@@ -132,8 +131,8 @@ export default function Post() {
               ></input>
               px
             </div>
-            <div>
-              Width
+            <div className={styles.width_range}>
+              <p>Width</p>
               <input
                 type="range"
                 min="100"
@@ -175,23 +174,35 @@ export default function Post() {
           </div>
         </div>
         <div className={styles.workDetail}>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="タイトルを入力してください"
-          />
-          <input
-            type="text"
-            value={tags}
-            onChange={(e) => setTags(e.target.value.split(/,| |　|\r\n|\r|\n/))}
-            placeholder="タグを入力してください"
-          />
+          <div className={styles.tagList}>
+            <input
+              type="text"
+              value={title}
+              className={styles.titleInput}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="タイトルを入力してください"
+            />
+            <input
+              type="text"
+              value={tags}
+              className={styles.tagInput}
+              onChange={(e) =>
+                setTags(e.target.value.split(/,| |　|\r\n|\r|\n/))
+              }
+              placeholder="タグを入力してください"
+            />
+          </div>
+          <div className={styles.buttons}>
+            <Link href="/" className={styles.back}>
+              戻る
+            </Link>
+            <PostButton onClick={() => PostWorks()}>POST</PostButton>
+          </div>
         </div>
-        <button id="saveButton" onClick={() => PostWorks()}>
-          post
-        </button>
       </div>
+      <button id="saveButton" onClick={() => PostWorks()}>
+        post
+      </button>
     </>
   );
 }
