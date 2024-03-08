@@ -10,7 +10,6 @@ import {
   setDoc,
   arrayUnion,
 } from "firebase/firestore";
-import { set } from "firebase/database";
 import { PostButton } from "@/components/PostButton";
 
 const db = getFirestore();
