@@ -79,24 +79,19 @@ export default function Home() {
       <Header />
       <main className={`${styles.main} ${inter.className}`}>
         <div>
-          <div className={styles.title}>
-            <h1>Hello, World!!</h1>
+          <Link className={styles.tag} href="./search">
+            検索欄
+          </Link>
+          <Link className={styles.tag} href="./post">
+            投稿ページ
+          </Link>
+          <div className={styles.tag}>
+            <Button onClick={() => location.replace("./login")}>
+              ログインページ
+            </Button>
           </div>
           <div>
-            <Link className={styles.tag} href="./search">
-              検索欄
-            </Link>
-            <Link className={styles.tag} href="./post">
-              投稿ページ
-            </Link>
-            <div className={styles.tag}>
-              <Button onClick={() => location.replace("./login")}>
-                ログインページ
-              </Button>
-            </div>
-            <div>
-              <PostList Post={works} />
-            </div>
+            <PostList Post={works} />
           </div>
         </div>
       </main>
