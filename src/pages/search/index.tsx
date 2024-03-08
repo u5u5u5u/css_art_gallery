@@ -31,7 +31,6 @@ export default function Home() {
 
   return (
     <>
-      <h1>kakusakuhinnじゃなくてworks</h1>
       <Link href="/">ギャラリーに戻る</Link>
       <button onClick={Addfavorite}>like</button>
     </>

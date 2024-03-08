@@ -42,7 +42,7 @@ const PreviewIframe: React.FC<{
           scrolling="no"
         ></iframe>
         <div className={style.title}>
-          <Link href={`/post/${Post.id}`}>{Post.title}</Link>
+          <Link href={`/works?id=${Post.id}`}>{Post.title}</Link>
         </div>
       </div>
     </>

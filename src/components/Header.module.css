@@ -27,3 +27,17 @@
   border-radius: 50%;
   margin-left: 20px;
 }
+.input {
+  visibility: visible;
+  border-radius: 10px;
+  font-size: 30px;
+  margin: 10px;
+}
+.search_check {
+  display: none;
+  height: 100px;
+  width: 100px;
+}
+.search_check:checked + .input {
+  visibility: hidden;
+}
