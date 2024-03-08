@@ -136,7 +136,11 @@ export default function Home() {
           </PostButton>
         </div>
         <h2>author</h2>
-        <div className={styles.author}>{workData?.author}</div>
+        <div className={styles.author}>
+          <Link href={`/mypage?uid=${workData?.authorId}`}>
+            {workData?.author}
+          </Link>
+        </div>
         <h2>tags</h2>
         <div className={styles.tag_group}>
           {workData?.tags.map((tag) => (
