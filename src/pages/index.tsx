@@ -84,8 +84,6 @@ export default function Home() {
           <div className={styles.title}>
             <h1>Hello, World!!</h1>
           </div>
-
-          <PostList Post={works} />
           <div>
             <Link className={styles.tag} href="./search">
               検索欄
@@ -98,6 +96,7 @@ export default function Home() {
                 ログインページ
               </Button>
             </div>
+            <PostList Post={works} />
           </div>
         </div>
       </main>

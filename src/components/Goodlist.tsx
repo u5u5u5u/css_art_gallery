@@ -95,7 +95,7 @@ export const PostList: React.FC<Props> = ({ Post }) => {
 
   useEffect(() => {
     setGoodPosts(Post);
-  }, []);
+  }, [Post]);
 
   return (
     <div>

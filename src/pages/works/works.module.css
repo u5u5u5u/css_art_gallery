@@ -22,14 +22,12 @@
   align-items: stretch;
 }
 
-.canvasCode div {
+.code {
   width: 50%;
 }
 
-.canvasCode textarea {
-  resize: none;
-  width: 100%;
-  min-height: 300px;
+.codeContent {
+  white-space: pre;
 }
 
 .canvasProp {
